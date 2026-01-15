@@ -58,3 +58,83 @@ Serviço: ${servico}
 
     window.open(url, "_blank");
   });
+
+// lightbox
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightbox-img");
+const closeBtn = document.querySelector(".lightbox-close");
+
+document.querySelectorAll(".gallery-item img").forEach((img) => {
+  img.addEventListener("click", () => {
+    lightboxImg.src = img.src;
+    lightboxImg.alt = img.alt;
+    lightbox.classList.add("active");
+    document.body.style.overflow = "hidden";
+  });
+});
+
+function closeLightbox() {
+  lightbox.classList.remove("active");
+  document.body.style.overflow = "";
+}
+
+closeBtn.addEventListener("click", closeLightbox);
+
+lightbox.addEventListener("click", (e) => {
+  if (e.target === lightbox) {
+    closeLightbox();
+  }
+});
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    closeLightbox();
+  }
+});
+
+// faq
+document.querySelectorAll(".faq-question").forEach((button) => {
+  button.addEventListener("click", () => {
+    const faqItem = button.parentElement;
+    const answer = faqItem.querySelector(".faq-answer");
+    const icon = button.querySelector(".faq-icon");
+
+    const isOpen = faqItem.classList.contains("active");
+
+    document.querySelectorAll(".faq-item").forEach((item) => {
+      item.classList.remove("active");
+      item.querySelector(".faq-answer").style.maxHeight = null;
+      item.querySelector(".faq-icon").textContent = "+";
+    });
+
+    if (!isOpen) {
+      faqItem.classList.add("active");
+      answer.style.maxHeight = answer.scrollHeight + "px";
+      icon.textContent = "–";
+    }
+  });
+});
+
+// formulario cta
+document.querySelectorAll(".form-whatsapp").forEach((form) => {
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const origem = form.dataset.origem || "Site";
+    const dados = new FormData(form);
+
+    let mensagem = `Olá, gostaria de um orçamento.%0A`;
+    mensagem += `Origem: ${origem}%0A`;
+
+    for (let [campo, valor] of dados.entries()) {
+      if (valor) {
+        mensagem += `${campo}: ${valor}%0A`;
+      }
+    }
+
+    const telefoneEmpresa = "5531999999999"; // ALTERE AQUI
+    const url = `https://wa.me/${telefoneEmpresa}?text=${mensagem}`;
+
+    window.open(url, "_blank");
+  });
+});
