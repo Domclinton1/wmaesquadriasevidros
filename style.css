@@ -924,3 +924,105 @@ h3 {
   border-radius: 14px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
+.form-whatsapp {
+  background: rgba(255, 255, 255, 0.06);
+  padding: 32px;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  backdrop-filter: blur(6px);
+}
+
+.form-whatsapp input,
+.form-whatsapp select,
+.form-whatsapp textarea {
+  padding: 14px 16px;
+  border-radius: 8px;
+  border: none;
+  font-size: 0.95rem;
+  width: 100%;
+}
+
+.form-whatsapp textarea {
+  min-height: 90px;
+  resize: vertical;
+}
+
+.form-whatsapp button {
+  margin-top: 10px;
+}
+.site-footer {
+  background: #0b2545;
+  color: #f1f5f9;
+  padding: 80px 24px 24px;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 48px;
+}
+
+.footer-logo {
+  max-width: 180px;
+  margin-bottom: 16px;
+}
+
+.footer-col h3 {
+  margin-bottom: 16px;
+  font-size: 1.05rem;
+}
+
+.footer-col p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-col ul li {
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+}
+
+.footer-col a {
+  color: #e2e8f0;
+  text-decoration: none;
+}
+
+.footer-col a:hover {
+  text-decoration: underline;
+}
+
+/* SOCIAL */
+.footer-social {
+  display: flex;
+  gap: 16px;
+  margin-top: 14px;
+}
+
+.footer-social img {
+  width: 28px;
+  transition: transform 0.3s ease;
+}
+
+.footer-social img:hover {
+  transform: scale(1.15);
+}
+
+/* BOTTOM */
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 48px;
+  padding-top: 20px;
+  text-align: center;
+  font-size: 0.85rem;
+  opacity: 0.8;
+}

@@ -138,3 +138,6 @@ document.querySelectorAll(".form-whatsapp").forEach((form) => {
     window.open(url, "_blank");
   });
 });
+
+// ano atual automatico
+document.getElementById("ano").textContent = new Date().getFullYear();
