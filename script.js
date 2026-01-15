@@ -50,7 +50,7 @@ Cidade/Bairro: ${cidade}
 Serviço: ${servico}
     `.trim();
 
-    const numeroWhatsApp = "5531999999999"; // TROQUE PELO NÚMERO DA WMA
+    const numeroWhatsApp = "5531982112125"; // TROQUE PELO NÚMERO DA WMA
 
     const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(
       mensagem
@@ -132,7 +132,7 @@ document.querySelectorAll(".form-whatsapp").forEach((form) => {
       }
     }
 
-    const telefoneEmpresa = "5531999999999"; // ALTERE AQUI
+    const telefoneEmpresa = "5531982112125"; // ALTERE AQUI
     const url = `https://wa.me/${telefoneEmpresa}?text=${mensagem}`;
 
     window.open(url, "_blank");
