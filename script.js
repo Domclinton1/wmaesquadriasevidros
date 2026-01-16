@@ -32,29 +32,33 @@ window.addEventListener("scroll", () => {
   lastScroll = currentScroll;
 });
 document
-  .getElementById("form-whatsapp")
+  .getElementById("form-whatsapp-hero")
   .addEventListener("submit", function (e) {
     e.preventDefault();
 
-    const nome = this.nome.value;
-    const telefone = this.telefone.value;
-    const cidade = this.cidade.value;
-    const servico = this.servico.value;
+    const nome = this.nome.value.trim();
+    const endereco = this.endereco.value.trim();
+    const mensagem = this.mensagem.value.trim();
 
-    const mensagem = `
-Olá, gostaria de solicitar um orçamento.
+    const texto = `
+Olá! Gostaria de solicitar um orçamento.
 
 Nome: ${nome}
-WhatsApp: ${telefone}
-Cidade/Bairro: ${cidade}
-Serviço: ${servico}
-    `.trim();
+Endereço da obra: ${endereco}
+Descrição: ${mensagem}
 
-    const numeroWhatsApp = "5531982112125"; // TROQUE PELO NÚMERO DA WMA
+Vim pelo site da WMA Esquadrias e Vidros.
+      `.trim();
 
-    const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(
-      mensagem
-    )}`;
+    const url = `https://wa.me/5531982112125?text=${encodeURIComponent(texto)}`;
+
+    /* Evento GA4 */
+    if (typeof gtag === "function") {
+      gtag("event", "lead_whatsapp", {
+        event_category: "Conversao",
+        event_label: "Formulario Hero",
+      });
+    }
 
     window.open(url, "_blank");
   });
@@ -120,20 +124,40 @@ document.querySelectorAll(".form-whatsapp").forEach((form) => {
   form.addEventListener("submit", function (e) {
     e.preventDefault();
 
-    const origem = form.dataset.origem || "Site";
-    const dados = new FormData(form);
+    const origem = this.dataset.origem || "Formulario";
+    const nome = this.querySelector("[name='nome']").value.trim();
+    const endereco = this.querySelector("[name='endereco']").value.trim();
+    const servico = this.querySelector("[name='servico']")
+      ? this.querySelector("[name='servico']").value
+      : "";
+    const mensagem = this.querySelector("[name='mensagem']").value.trim();
 
-    let mensagem = `Olá, gostaria de um orçamento.%0A`;
-    mensagem += `Origem: ${origem}%0A`;
+    let texto = `
+Olá! Gostaria de solicitar um orçamento.
 
-    for (let [campo, valor] of dados.entries()) {
-      if (valor) {
-        mensagem += `${campo}: ${valor}%0A`;
-      }
+Nome: ${nome}
+Endereço da obra: ${endereco}
+      `.trim();
+
+    if (servico) {
+      texto += `\nServiço: ${servico}`;
     }
 
-    const telefoneEmpresa = "5531982112125"; // ALTERE AQUI
-    const url = `https://wa.me/${telefoneEmpresa}?text=${mensagem}`;
+    if (mensagem) {
+      texto += `\nDescrição: ${mensagem}`;
+    }
+
+    texto += `\n\nVim pelo site da WMA Esquadrias e Vidros.`;
+
+    const url = `https://wa.me/5531982112125?text=${encodeURIComponent(texto)}`;
+
+    /* Evento GA4 */
+    if (typeof gtag === "function") {
+      gtag("event", "lead_whatsapp", {
+        event_category: "Conversao",
+        event_label: origem,
+      });
+    }
 
     window.open(url, "_blank");
   });

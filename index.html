@@ -148,29 +148,22 @@
           <div class="hero-form">
             <h3>Solicite um orçamento gratuito</h3>
 
-            <form id="form-whatsapp">
+            <form id="form-whatsapp-hero">
               <input type="text" name="nome" placeholder="Seu nome" required />
-              <input
-                type="tel"
-                name="telefone"
-                placeholder="WhatsApp"
-                required
-              />
+
               <input
                 type="text"
-                name="cidade"
-                placeholder="Cidade / Bairro"
+                name="endereco"
+                placeholder="Endereço da obra (bairro / cidade)"
                 required
               />
 
-              <select name="servico" required>
-                <option value="">Tipo de serviço</option>
-                <option>Portas de alumínio</option>
-                <option>Janelas de alumínio</option>
-                <option>Esquadrias sob medida</option>
-                <option>Vidro temperado</option>
-                <option>Outro</option>
-              </select>
+              <textarea
+                name="mensagem"
+                rows="3"
+                placeholder="Descreva brevemente o que você precisa (ex: portas, janelas, fachada, vidro, etc.)"
+                required
+              ></textarea>
 
               <button type="submit" class="btn-oferta">
                 <span>Solicitar Orçamento no WhatsApp</span>
@@ -257,19 +250,10 @@
               href="https://wa.me/5531982112125?text=Olá%21%20Gostaria%20de%20solicitar%20um%20orçamento%20para%20esquadrias%20de%20alumínio%20e%20vidros.%20Vim%20pelo%20site%20da%20WMA%20Esquadrias%20e%20Vidros."
               target="_blank"
               onclick="
-                if (typeof gtag === 'function') {
-                  gtag('event', 'conversion', {
-                    send_to: 'AW-XXXXXXXXXX/XXXXXXXXXX',
-                    event_callback: function () {},
-                  });
-                }
-
-                if (typeof fbq === 'function') {
-                  fbq('track', 'Contact', {
-                    content_name: 'WhatsApp Orçamento',
-                    content_category: 'Esquadrias e Vidros',
-                  });
-                }
+                gtag('event', 'click_whatsapp', {
+                  event_category: 'Contato',
+                  event_label: 'WhatsApp - serviços',
+                })
               "
             >
               <span>Solicitar Orçamento no WhatsApp</span>
@@ -307,19 +291,10 @@
               target="_blank"
               class="btn-oferta"
               onclick="
-                if (typeof gtag === 'function') {
-                  gtag('event', 'conversion', {
-                    send_to: 'AW-XXXXXXXXXX/XXXXXXXXXX',
-                    event_callback: function () {},
-                  });
-                }
-
-                if (typeof fbq === 'function') {
-                  fbq('track', 'Contact', {
-                    content_name: 'WhatsApp Orçamento',
-                    content_category: 'Esquadrias e Vidros',
-                  });
-                }
+                gtag('event', 'click_whatsapp', {
+                  event_category: 'Contato',
+                  event_label: 'authority btn',
+                })
               "
             >
               <span>Solicitar Orçamento</span>
@@ -626,19 +601,10 @@
               target="_blank"
               class="btn-oferta"
               onclick="
-                if (typeof gtag === 'function') {
-                  gtag('event', 'conversion', {
-                    send_to: 'AW-XXXXXXXXXX/XXXXXXXXXX',
-                    event_callback: function () {},
-                  });
-                }
-
-                if (typeof fbq === 'function') {
-                  fbq('track', 'Contact', {
-                    content_name: 'WhatsApp Orçamento',
-                    content_category: 'Esquadrias e Vidros',
-                  });
-                }
+                gtag('event', 'click_whatsapp', {
+                  event_category: 'Contato',
+                  event_label: 'WhatsApp - gallery',
+                })
               "
             >
               <span>Solicitar Orçamento no WhatsApp</span>
@@ -825,6 +791,9 @@
 
             <div class="cta-infos">
               <form class="form-whatsapp" data-origem="CTA Final">
+                <h3 class="form-title">Solicite um orçamento gratuito</h3>
+                <p class="form-subtitle">Resposta rápida • Sem compromisso</p>
+
                 <input
                   type="text"
                   name="nome"
@@ -853,10 +822,20 @@
                   placeholder="Descreva seu projeto"
                 ></textarea>
 
-                <button type="submit" class="btn-oferta">
+                <button
+                  type="submit"
+                  class="btn-oferta"
+                  onclick="
+                    gtag('event', 'click_whatsapp', {
+                      event_category: 'Contato',
+                      event_label: 'WhatsApp - formulario final',
+                    })
+                  "
+                >
                   <span>Enviar para WhatsApp</span>
                 </button>
               </form>
+
               <!-- MAPA -->
               <div class="cta-mapa">
                 <iframe
@@ -980,7 +959,21 @@
       <span class="lightbox-close">&times;</span>
       <img id="lightbox-img" alt="" />
     </div>
-
+    <a
+      class="btn-whatsapp"
+      onclick="return gtag_report_conversion();"
+      href="https://wa.me/5531982112125?text=Olá%21%20Gostaria%20de%20solicitar%20um%20orçamento%20para%20esquadrias%20de%20alumínio%20e%20vidros.%20Vim%20pelo%20site%20da%20WMA%20Esquadrias%20e%20Vidros."
+      target="_blank"
+      onclick="
+        gtag('event', 'whatsapp_click', {
+          event_category: 'contato',
+          event_label: 'whatsapp_flutuante',
+        })
+      "
+    >
+      <img src="./assets/icons/whatssapp-2.svg" alt="Botão whatsapp" />
+      <span class="tooltip-text">Agende seu orçamento.</span>
+    </a>
     <script src="script.js"></script>
   </body>
 </html>

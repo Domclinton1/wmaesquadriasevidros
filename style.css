@@ -1159,3 +1159,85 @@ h3 {
 .social-link:nth-child(3):hover .social-icon {
   fill: #1877f2;
 }
+.form-whatsapp {
+  background: #0b2545;
+  padding: 32px;
+  border-radius: 12px;
+  max-width: 460px;
+}
+
+.form-whatsapp .form-title {
+  font-size: 1.6rem;
+  margin-bottom: 4px;
+}
+
+.form-whatsapp .form-subtitle {
+  font-size: 0.9rem;
+  color: #cbd5e1;
+  margin-bottom: 20px;
+}
+
+.form-whatsapp input,
+.form-whatsapp select,
+.form-whatsapp textarea {
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 14px;
+  border-radius: 6px;
+  border: none;
+}
+
+.form-whatsapp textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+.btn-whatsapp {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 99;
+  cursor: pointer;
+}
+.btn-whatsapp img {
+  max-width: 74px;
+  transition: 0.4s;
+  animation: zoomImage 2s infinite;
+}
+.btn-whatsapp img:hover {
+  transform: scale(1.1);
+}
+
+.btn-whatsapp .tooltip-text {
+  visibility: hidden;
+  position: absolute;
+  width: 220px;
+  top: 25px;
+  left: -228px;
+  padding: 2px;
+  border-radius: 8px;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.4s;
+  background-color: var(--azul);
+  color: var(--azul-claro);
+}
+
+.btn-whatsapp:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+@media screen and (max-width: 768px) {
+  .btn-whatsapp .tooltip-text {
+    visibility: hidden;
+    position: absolute;
+    width: 220px;
+    top: 10px;
+    left: -228px;
+    padding: 2px;
+    border-radius: 8px;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.4s;
+    background-color: var(--gradient-metal);
+  }
+}
