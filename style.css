@@ -598,6 +598,32 @@ h3 {
 .gallery-cta {
   margin-top: 48px;
 }
+@media (max-width: 768px) {
+  .gallery-grid {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 12px;
+
+    /* UX suave */
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .gallery-item {
+    flex: 0 0 80%;
+    scroll-snap-align: center;
+  }
+
+  /* Esconde scrollbar (estético) */
+  .gallery-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .gallery-grid {
+    scrollbar-width: none;
+  }
+}
 
 /* RESPONSIVO */
 @media (max-width: 1024px) {
