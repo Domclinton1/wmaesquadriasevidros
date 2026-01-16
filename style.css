@@ -863,13 +863,30 @@ h3 {
 }
 
 .cta-content {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  display: flex;
+  flex-direction: column;
   gap: 48px;
   align-items: center;
   margin-bottom: 60px;
 }
-
+.cta-infos {
+  display: flex;
+  gap: 2rem;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-direction: row-reverse;
+}
+@media screen and (max-width: 900px) {
+  .cta-infos {
+    flex-direction: column;
+    max-width: 100%;
+  }
+}
+.cta-text {
+  align-items: center;
+  text-align: center;
+}
 .cta-text h2 {
   margin-bottom: 16px;
 }
@@ -1026,4 +1043,94 @@ h3 {
   text-align: center;
   font-size: 0.85rem;
   opacity: 0.8;
+}
+.social-icons {
+  display: flex;
+  gap: 14px;
+}
+
+.icon {
+  width: 38px;
+  height: 38px;
+  display: inline-block;
+
+  /* gradiente padrão */
+  background: var(--gradient-metal);
+
+  /* máscara */
+  -webkit-mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+
+  transition: all 0.3s ease;
+}
+
+/* HOVER — troca cor */
+.social-icons a:hover .icon {
+  background: linear-gradient(135deg, #ffffff, #c9b8ff);
+  transform: translateY(-3px);
+}
+.footer-social {
+  display: flex;
+  gap: 18px;
+  margin-top: 20px;
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.social-icon {
+  width: 22px;
+  height: 22px;
+  fill: #e2e8f0;
+  transition: fill 0.3s ease;
+}
+
+.social-link:hover {
+  transform: translateY(-4px);
+  background: rgba(56, 189, 248, 0.15);
+}
+
+.social-link:hover .social-icon {
+  fill: #38bdf8;
+}
+/* Hover padrão */
+.social-link:hover {
+  transform: translateY(-4px);
+}
+
+/* Instagram */
+.social-link:nth-child(1):hover {
+  background: rgba(225, 48, 108, 0.15);
+}
+.social-link:nth-child(1):hover .social-icon {
+  fill: #e1306c;
+}
+
+/* WhatsApp */
+.social-link:nth-child(2):hover {
+  background: rgba(37, 211, 102, 0.15);
+}
+.social-link:nth-child(2):hover .social-icon {
+  fill: #25d366;
+}
+
+/* Facebook */
+.social-link:nth-child(3):hover {
+  background: rgba(24, 119, 242, 0.15);
+}
+.social-link:nth-child(3):hover .social-icon {
+  fill: #1877f2;
 }
