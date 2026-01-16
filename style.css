@@ -437,6 +437,7 @@ h3 {
   );
   z-index: 1;
 }
+
 .service-card h3,
 .service-card p {
   position: relative;
@@ -483,7 +484,7 @@ h3 {
 .service-card p {
   font-size: 0.95rem;
   line-height: 1.6;
-  color: #374151;
+  color: #fff;
 }
 
 /* CTA */

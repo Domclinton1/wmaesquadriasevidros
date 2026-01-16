@@ -71,12 +71,12 @@
   <body>
     <header class="header">
       <div class="container">
-        <div class="logo">
+        <a href="#" class="logo">
           <img
             src="./assets/icons/wmaesquadriasevidros-logo.svg"
             alt="WMA Esquadrias e Vidros"
           />
-        </div>
+        </a>
 
         <nav class="nav-desktop">
           <a href="#">Início</a>
@@ -238,7 +238,26 @@
           </div>
 
           <div class="services-cta">
-            <a href="#oferta" class="btn-oferta">
+            <a
+              class="btn-oferta"
+              href="https://wa.me/5531982112125?text=Olá%21%20Gostaria%20de%20solicitar%20um%20orçamento%20para%20esquadrias%20de%20alumínio%20e%20vidros.%20Vim%20pelo%20site%20da%20WMA%20Esquadrias%20e%20Vidros."
+              target="_blank"
+              onclick="
+    if (typeof gtag === 'function') {
+      gtag('event', 'conversion', {
+        'send_to': 'AW-XXXXXXXXXX/XXXXXXXXXX',
+        'event_callback': function() {}
+      });
+    }
+
+    if (typeof fbq === 'function') {
+      fbq('track', 'Contact', {
+        content_name: 'WhatsApp Orçamento',
+        content_category: 'Esquadrias e Vidros'
+      });
+    }
+  "
+            >
               <span>Solicitar Orçamento no WhatsApp</span>
             </a>
           </div>
@@ -269,7 +288,26 @@
               <li>✔ Compromisso com prazos</li>
             </ul>
 
-            <a href="#oferta" class="btn-oferta">
+            <a
+              href="https://wa.me/5531982112125?text=Olá%21%20Gostaria%20de%20solicitar%20um%20orçamento%20para%20esquadrias%20de%20alumínio%20e%20vidros.%20Vim%20pelo%20site%20da%20WMA%20Esquadrias%20e%20Vidros."
+              target="_blank"
+              class="btn-oferta"
+              onclick="
+    if (typeof gtag === 'function') {
+      gtag('event', 'conversion', {
+        'send_to': 'AW-XXXXXXXXXX/XXXXXXXXXX',
+        'event_callback': function() {}
+      });
+    }
+
+    if (typeof fbq === 'function') {
+      fbq('track', 'Contact', {
+        content_name: 'WhatsApp Orçamento',
+        content_category: 'Esquadrias e Vidros'
+      });
+    }
+  "
+            >
               <span>Solicitar Orçamento</span>
             </a>
           </div>
@@ -415,7 +453,26 @@
           </div>
 
           <div class="gallery-cta">
-            <a href="#oferta" class="btn-oferta">
+            <a
+              href="https://wa.me/5531982112125?text=Olá%21%20Gostaria%20de%20solicitar%20um%20orçamento%20para%20esquadrias%20de%20alumínio%20e%20vidros.%20Vim%20pelo%20site%20da%20WMA%20Esquadrias%20e%20Vidros."
+              target="_blank"
+              class="btn-oferta"
+              onclick="
+    if (typeof gtag === 'function') {
+      gtag('event', 'conversion', {
+        'send_to': 'AW-XXXXXXXXXX/XXXXXXXXXX',
+        'event_callback': function() {}
+      });
+    }
+
+    if (typeof fbq === 'function') {
+      fbq('track', 'Contact', {
+        content_name: 'WhatsApp Orçamento',
+        content_category: 'Esquadrias e Vidros'
+      });
+    }
+  "
+            >
               <span>Solicitar Orçamento no WhatsApp</span>
             </a>
           </div>
