@@ -73,6 +73,24 @@
 
       gtag("config", "G-2S5S8CWBY1");
     </script>
+    <!-- Google tag (gtag.js) event - delayed navigation helper -->
+    <script>
+      // Helper function to delay opening a URL until a gtag event is sent.
+      // Call it in response to an action that should navigate to a URL.
+      function gtagSendEvent(url) {
+        var callback = function () {
+          if (typeof url === "string") {
+            window.location = url;
+          }
+        };
+        gtag("event", "manual_event_CONTACT", {
+          event_callback: callback,
+          event_timeout: 2000,
+          // <event_parameters>
+        });
+        return false;
+      }
+    </script>
   </head>
   <main></main>
   <body>
@@ -146,11 +164,7 @@
               required
             ></textarea>
 
-            <button
-              type="submit"
-              class="btn-oferta"
-              onclick="gtag_report_conversion()"
-            >
+            <button type="submit" class="btn-oferta" onclick="gtagSendEvent()">
               <span>Solicitar Orçamento no WhatsApp</span>
             </button>
           </form>
