@@ -723,7 +723,7 @@ h3 {
   padding: 100px 24px;
   background:
     linear-gradient(rgba(11, 37, 69, 0.92), rgba(11, 37, 69, 0.92)),
-    url("./assets/images/banner-wma.jpeg") center/cover no-repeat;
+    url("./assets/images/banner-wma.png") center/cover no-repeat;
 }
 
 .oferta-container {
